@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Recebendo os dados do cliente
+        System.out.print("Digite o nome do cliente: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Digite a idade do cliente: ");
+        int idade = scanner.nextInt();
+
+        System.out.print("Digite o valor da compra: R$ ");
+        double valorCompra = scanner.nextDouble();
+
+        // Calculando o cashback com base nas regras
+        double cashback = calcularCashback(idade, valorCompra);
+
+        // Exibindo os dados
+        System.out.println("\nCliente: " + nome);
+        System.out.println("Idade: " + idade + " anos");
+        System.out.printf("Cashback: R$ %.2f%n", cashback);
+    }
+
+    public static double calcularCashback(int idade, double valorCompra) {
+        double percentualCashback;
+
+        if (idade >= 21) {
+            if (valorCompra < 1000) {
+                percentualCashback = 0.05;
+            } else {
+                percentualCashback = 0.07;
+            }
+        } else {
+            if (valorCompra < 1000) {
+                percentualCashback = 0.07;
+            } else {
+                percentualCashback = 0.10;
+            }
+        }
+
+        return valorCompra * percentualCashback;
+    }
+}
