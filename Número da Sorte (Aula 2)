@@ -1,0 +1,55 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        Random randomizacao = new Random();
+        
+        System.out.print("Digite seu nome completo: ");
+        String nome = scanner.nextLine();
+        
+        int numeroDaSorte = randomizacao.nextInt(100);
+        
+        int tentativa = 0;
+        boolean acertou = false;
+        int maxTentativas = 10;
+        
+        System.out.println("** Bem-vindo ao Número da Sorte! **");
+        
+        while (tentativa < maxTentativas && !acertou) {
+            System.out.print("Digite seu palpite (entre 0 e 99): ");
+            int palpite = scanner.nextInt();
+            tentativa++;
+            
+            if (palpite == numeroDaSorte) {
+                acertou = true;
+                System.out.println("Parabéns, " + nome + "! Você acertou o número da sorte.");
+                System.out.println("Número da sorte era: " + numeroDaSorte);
+                System.out.println("Tentativas necessárias: " + tentativa);
+            } else if (palpite < numeroDaSorte) {
+                System.out.println("O número da sorte é maior. Tente novamente!");
+            } else {
+                System.out.println("O número da sorte é menor. Tente novamente!");
+            }
+            
+            if (!acertou && tentativa < maxTentativas) {
+                System.out.print("Deseja continuar tentando? (s/n): ");
+                char resposta = scanner.next().charAt(0);
+                if (resposta == 'n' || resposta == 'N') {
+                    System.out.println("Você optou por sair do jogo.");
+                    break;
+                }
+            }
+        }
+        
+        if (!acertou) {
+            System.out.println("Você excedeu o número máximo de tentativas.");
+            System.out.println("Número da sorte era: " + numeroDaSorte);
+        }
+        
+        scanner.close();
+    }
+}
