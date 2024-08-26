@@ -44,7 +44,7 @@ public class Main {
                 }
             }
         }
-        
+    
         if (!acertou) {
             System.out.println("Você excedeu o número máximo de tentativas.");
             System.out.println("Número da sorte era: " + numeroDaSorte);
