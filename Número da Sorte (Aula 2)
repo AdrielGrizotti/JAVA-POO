@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random randomizacao = new Random();
-        
+         
         System.out.println("*************************************************");
         System.out.println("**           BEM-VINDO AO NÚMERO DA SORTE!      **");
         System.out.println("*************************************************");
